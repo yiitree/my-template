@@ -1,0 +1,33 @@
+# DataSource Config
+spring:
+  datasource:
+    #    driver-class-name: com.mysql.jdbc.Driver
+    #    url: jdbc:mysql://localhost:3306/mybatis_plus
+    # \u4FEE\u6539\u9A71\u52A8\u4E3A\u6253\u5370sql\u9A71\u52A8
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/mybatis_plus
+    username: root
+    password: root
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+  servlet:
+    multipart:
+      enabled: true
+      # Threshold after which files are written to disk.
+      file-size-threshold: 2KB
+      # Max file size.
+      max-file-size: 200MB
+      # Max Request Size
+      max-request-size: 215MB
+
+# \u914D\u7F6Emybatis-plus
+mybatis-plus:
+  mapper-locations:
+    - classpath:mapper/*Mapper.xml # \u626B\u63CFmapper
+  global-config:
+    db-config:
+      id-type: auto # id\u7C7B\u578B
+    banner: true # \u542F\u52A8logo
+
+# \u8BB0\u5F97\u628Afile.upload-dir\u914D\u7F6E\u6210\u4F60\u81EA\u5DF1\u7684\u5B58\u50A8\u6587\u4EF6\u7684\u6587\u4EF6\u6240\u5728\u7684\u7EDD\u5BF9\u8DEF\u5F84
+file:
+  upload-dir: E:\tmp\file
