@@ -43,6 +43,34 @@ public class StorageServiceImpl implements StorageService {
     }
 
     /**
+     * 自定义文件上传
+     * @param file
+     * @return
+     */
+    @Override
+    public String myUploadFile(MultipartFile file) {
+        // 文件名原始名
+        String originalFilename = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+        // 新文件名（防止文件重名）
+        String newFileName = System.currentTimeMillis() + "." + UploadUtils.getFileSuffix(originalFilename);
+        // 文件名不合法
+        if(!"xlsx".contains(UploadUtils.getFileSuffix(originalFilename))){
+            throw new FileStorageException("文件类型不合法");
+        }
+
+        Path targetLocation = this.fileStorageLocation.resolve(newFileName);
+
+        // 文件绝对路径
+        String string = targetLocation.toAbsolutePath().toString();
+        try {
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            throw new FileStorageException("无法保存文件" + originalFilename + "请重试!", ex);
+        }
+        return string;
+    }
+
+    /**
      * 上传文件
      * @param file 要上传的文件
      * @return 返回新文件名
@@ -88,4 +116,8 @@ public class StorageServiceImpl implements StorageService {
             throw new FileStorageException("File not found" + fileName);
         }
     }
+
+
+
+
 }

@@ -19,4 +19,10 @@ public interface StorageService {
 
     Resource loadFileAsResource(String fileName);
 
+    /**
+     * 自定义文件上传
+     * @param file
+     * @return
+     */
+    String myUploadFile(MultipartFile file);
 }
