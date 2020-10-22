@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+
+    <!--
+    设置全局 date-formate 和 field 级别 date-formate，全局设置
+     如果同时设置了全局/类/Field 级别的 date-format，按照优先级最高的进行格式化：Field > 类 > 全局
+     -->
+
+    <configuration>
+        <!-- 默认是 true，当发生转换错误时抛出异常，停止转换，这里设置成false，如果转换错误，继续转换 -->
+        <stop-on-errors>false</stop-on-errors>
+        <date-format>yyyy-MM-dd HH:mm:ss</date-format>
+    </configuration>
+</mappings>

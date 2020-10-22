@@ -19,14 +19,6 @@ spring:
       # Max Request Size
       max-request-size: 215MB
 
-  # 配置定时任务
-  quartz:
-    job-store-type: JDBC #数据库存储quartz任务配置
-    jdbc:
-      initialize-schema: NEVER #自动初始化表结构，第一次启动的时候这里写always
-
-
-
 # mybatis-plus
 mybatis-plus:
   mapper-locations:
