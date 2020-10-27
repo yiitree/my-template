@@ -59,7 +59,6 @@ public class QuartzUtils {
      * @param quartzBean 定时任务信息类
      */
     public static void updateScheduleJob(Scheduler scheduler, QuartzBean quartzBean) throws SchedulerException {
-
         //获取到对应任务的触发器
         TriggerKey triggerKey = TriggerKey.triggerKey(quartzBean.getJobName());
         //设置定时任务执行方式

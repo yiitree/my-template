@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static java.lang.Thread.sleep;
 
 /**
+ * 异步调用
  * @Author: 曾睿
  * @Date: 2020/10/22 14:03
  */

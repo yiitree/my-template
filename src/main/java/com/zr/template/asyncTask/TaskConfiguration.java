@@ -14,6 +14,11 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 public class TaskConfiguration {
+
+    /**
+     * 设置线程池
+     * @return
+     */
     @Bean("taskExecutor")
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

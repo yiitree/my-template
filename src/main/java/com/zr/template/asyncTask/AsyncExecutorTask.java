@@ -13,7 +13,8 @@ import java.util.concurrent.Future;
  */
 @Component
 public class AsyncExecutorTask extends AbstractTask {
-    @Async("taskExecutor")
+
+    @Async("taskExecutor")// 指定线程池
     public Future<String> doTaskOneCallback() throws Exception {
         super.doTaskOne();
         System.out.println("任务一，当前线程：" + Thread.currentThread().getName());

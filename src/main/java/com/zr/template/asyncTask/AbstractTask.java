@@ -5,6 +5,9 @@ import java.util.Random;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.Thread.sleep;
 
+/**
+ * 抽象任务
+ */
 public abstract class AbstractTask {
 
     private static Random random = new Random();

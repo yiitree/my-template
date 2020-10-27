@@ -54,4 +54,11 @@ public class ExceptionAdvice {
         return RespBean.error(e.getBindingResult().getFieldError().getDefaultMessage());
     }
 
+//    /**-------- 自定义定异常处理方法 --------**/
+//    @ExceptionHandler(FileStorageException.class)
+//    public Object exceptionHandler(CommonException e){
+//        ExceptionEnum exceptionEnum = e.getExceptionEnum();
+//        return new RespBean(exceptionEnum.getCode(), exceptionEnum.getMsg(),null);
+//    }
+
 }

@@ -13,7 +13,8 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/quartz/job/")
 public class QuartzController {
-    //注入任务调度
+
+    //注入任务调度器
     @Resource
     private Scheduler scheduler;
 
@@ -21,21 +22,22 @@ public class QuartzController {
     @ResponseBody
     public String createJob(@RequestBody QuartzBean quartzBean) throws SchedulerException, ClassNotFoundException {
         QuartzUtils.createScheduleJob(scheduler,quartzBean);
-        return "已创建任务";//这里return不是生产级别代码，测试简单写一下
+        //这里return不是生产级别代码，测试简单写一下
+        return "已创建任务";
     }
 
     @PostMapping("/pause")
     @ResponseBody
     public String pauseJob(String jobName) throws SchedulerException {
         QuartzUtils.pauseScheduleJob (scheduler,jobName);
-        return "已暂停成功";//这里return不是生产级别代码，测试简单写一下
+        return "已暂停成功";
     }
 
     @PostMapping("/run")
     @ResponseBody
     public String runOnce(String jobName) throws SchedulerException {
         QuartzUtils.runOnce (scheduler,jobName);
-        return "运行任务" + jobName + "成功";//这里return不是生产级别代码，测试简单写一下
+        return "运行任务" + jobName + "成功";
     }
 
     @PostMapping("/resume")

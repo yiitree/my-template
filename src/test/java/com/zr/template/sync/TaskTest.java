@@ -40,6 +40,7 @@ public class TaskTest {
         asyncTask.doTaskThree();
     }
 
+    // 异步调用返回
     @Autowired
     private AsyncCallBackTask asyncCallBackTask;
 
@@ -58,4 +59,5 @@ public class TaskTest {
         long end = currentTimeMillis();
         System.out.println("任务全部完成，总耗时：" + (end - start) + "毫秒");
     }
+
 }
