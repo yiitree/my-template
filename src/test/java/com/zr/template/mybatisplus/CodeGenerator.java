@@ -11,12 +11,6 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 import java.util.Scanner;
 
-;
-
-/**
- * @Author: 曾睿
- * @Date: 2020/5/22 17:02
- */
 public class CodeGenerator {
 
     /**

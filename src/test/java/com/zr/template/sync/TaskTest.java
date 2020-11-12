@@ -1,6 +1,7 @@
 package com.zr.template.sync;
 
 import com.zr.template.asyncTask.AsyncCallBackTask;
+import com.zr.template.asyncTask.AsyncExecutorTask;
 import com.zr.template.asyncTask.AsyncTask;
 import com.zr.template.asyncTask.SyncTask;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import static java.lang.Thread.sleep;
 @SpringBootTest
 public class TaskTest {
 
-    // 同步调用
+    // 01、同步调用
     @Autowired
     private SyncTask task;
 
@@ -29,7 +30,9 @@ public class TaskTest {
         task.doTaskThree();
     }
 
-    // 异步调用
+    //------------------------------------------------------------------------
+
+    // 02、异步调用
     @Autowired
     private AsyncTask asyncTask;
 
@@ -37,10 +40,13 @@ public class TaskTest {
     public void testAsyncTasks() throws Exception {
         asyncTask.doTaskOne();
         asyncTask.doTaskTwo();
+        sleep(30 * 100L);
         asyncTask.doTaskThree();
     }
 
-    // 异步调用返回
+    //------------------------------------------------------------------------
+
+    // 03、异步调用---有返回
     @Autowired
     private AsyncCallBackTask asyncCallBackTask;
 
@@ -58,6 +64,19 @@ public class TaskTest {
 
         long end = currentTimeMillis();
         System.out.println("任务全部完成，总耗时：" + (end - start) + "毫秒");
+    }
+
+    //------------------------------------------------------------------------
+
+    // 04、使用线程池调用
+    @Autowired
+    private AsyncExecutorTask tasks;
+
+    @Test
+    public void testAsyncExecutorTask() throws Exception {
+        tasks.doTaskOneCallback();
+        tasks.doTaskTwoCallback();
+        tasks.doTaskThreeCallback();
     }
 
 }

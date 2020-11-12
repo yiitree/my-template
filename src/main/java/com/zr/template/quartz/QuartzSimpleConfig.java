@@ -22,17 +22,6 @@ public class QuartzSimpleConfig {
      */
     // 指定具体的定时任务类
 
-    /**
-     * 自定义一个定时任务
-     * @return
-     */
-    @Bean
-    public JobDetail uploadTaskDetail() {
-        return JobBuilder.newJob(QuartzSimpleTask.class)
-                .withIdentity("QuartzSimpleTask")
-                .storeDurably().build();
-    }
-
     //Trigger：描述触发作业执行的时间规则的类。
     //SimpleTrigger：一次或固定间隔时间段的触发规则。
     //CronTrigger：通过cron表达式描述更复杂的触发规则。
@@ -48,9 +37,21 @@ public class QuartzSimpleConfig {
     //CronTrigger功能非常强大，它基于Calendar进行作业调度，并且可以比simpletrigger更精确地指定间隔，因此crotrigger比simpletrigger更常用。
     // Crotrigger基于cron表达式。
 
+
+    /**
+     * 自定义一个定时任务 这个类要继承QuartzJobBean
+     */
+    @Bean
+    public JobDetail uploadTaskDetail() {
+        return JobBuilder.newJob(QuartzSimpleTask.class)
+                // 类名
+                .withIdentity("QuartzSimpleTask")
+                .storeDurably()
+                .build();
+    }
+
     /**
      * 设置定时任务执行触发条件
-     * @return
      */
     @Bean
     public Trigger uploadTaskTrigger() {

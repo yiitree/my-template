@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 
 /**
- * 异步线程池执行
+ * 04、使用异步线程池调用
  * @Author: 曾睿
  * @Date: 2020/10/22 14:02
  */

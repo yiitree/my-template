@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 
 /**
- * 异步任务回调
+ * 03、异步任务-有回调
  */
 @Component
 public class AsyncCallBackTask extends AbstractTask {

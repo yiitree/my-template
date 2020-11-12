@@ -17,6 +17,7 @@ public class TaskConfiguration {
 
     /**
      * 设置线程池
+     * 设置线程池名称，调用的时候可以指定使用哪个线程调用
      * @return
      */
     @Bean("taskExecutor")

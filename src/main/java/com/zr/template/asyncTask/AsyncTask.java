@@ -3,7 +3,10 @@ package com.zr.template.asyncTask;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-// 异步调用
+/**
+ * 02、异步调用
+ * 没有返回值
+ */
 @Component
 public class AsyncTask extends AbstractTask {
 
