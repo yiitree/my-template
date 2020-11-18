@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.awt.*;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,8 +33,9 @@ public class WordTest {
     @Test
     public void test2() throws IOException {
         //核心API采用了极简设计，只需要一行代码
-        XWPFTemplate.compile("e://template.docx").render(new HashMap<String, Object>(){{
-            put("title", "poi-tl 模板引擎");
-        }}).writeToFile("e://out_template.docx");
+        Map map = new HashMap<String, Object>(){};
+        map.put("对象", "第一个");
+        map.put("军队", "第二个");
+        XWPFTemplate.compile("e://demo.docx").render(map).writeToFile("e://out_demo.docx");
     }
 }

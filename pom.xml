@@ -136,6 +136,7 @@
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
+        <!-- hutool工具包 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -161,14 +162,14 @@
 <!--    </build>-->
 
     <build>
-        <finalName>mcn-main</finalName>
+        <finalName>${artifactId}</finalName>
 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.mcn.McnMainApp</mainClass>
+                    <mainClass>com.zr.template.TemplateApplication</mainClass>
                     <layout>ZIP</layout>
                     <includes>
                         <include>

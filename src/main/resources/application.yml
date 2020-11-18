@@ -25,8 +25,6 @@ spring:
     jdbc:
       initialize-schema: NEVER #自动初始化表结构，第一次启动的时候这里写always
 
-
-
 # mybatis-plus
 mybatis-plus:
   mapper-locations:
@@ -34,7 +32,7 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto # id自增
-    banner: true # \u542F\u52A8logo
+    banner: true # 启动logo
 
 # 文件上传路径
 file:

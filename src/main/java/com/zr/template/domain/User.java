@@ -3,6 +3,7 @@ package com.zr.template.domain;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -31,4 +32,12 @@ public class User implements Serializable{
 
 //    @TableField(exist=false)//当查询结果里面没有这个字段可以这个方法忽略这个属性
 //    private String sex;
+
+    /**
+     * 返回中不会存在此字段，
+     * 接收时：如果为@RequestBody，则该字段为null
+     * 如果不加@RequestBody，则可以接收到值
+     */
+    @JsonIgnore
+    private String password;
 }
