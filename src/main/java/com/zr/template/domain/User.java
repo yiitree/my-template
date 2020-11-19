@@ -3,7 +3,6 @@ package com.zr.template.domain;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -38,6 +37,6 @@ public class User implements Serializable{
      * 接收时：如果为@RequestBody，则该字段为null
      * 如果不加@RequestBody，则可以接收到值
      */
-    @JsonIgnore
-    private String password;
+//    @JsonIgnore
+//    private String password;
 }

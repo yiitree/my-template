@@ -32,9 +32,8 @@ public class WordTest {
 
     @Test
     public void test2() throws IOException {
-        //核心API采用了极简设计，只需要一行代码
         Map map = new HashMap<String, Object>(){};
-        map.put("对象", "第一个");
+        map.put("地区", "666666");
         map.put("军队", "第二个");
         XWPFTemplate.compile("e://demo.docx").render(map).writeToFile("e://out_demo.docx");
     }

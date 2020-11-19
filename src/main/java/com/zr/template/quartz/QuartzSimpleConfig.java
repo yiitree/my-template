@@ -18,7 +18,6 @@ public class QuartzSimpleConfig {
      * name是调度程序中任务的名称，
      * group是调度程序中任务的组名。
      * 默认组名称为Scheduler.DEFAULT_GROUP。
-     * @return
      */
     // 指定具体的定时任务类
 

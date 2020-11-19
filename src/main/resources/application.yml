@@ -5,7 +5,7 @@ spring:
     # url: jdbc:mysql://localhost:3306/mybatis_plus
     # 日志记录
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:p6spy:mysql://localhost:3306/mybatis_plus
+    url: jdbc:p6spy:mysql://localhost:3306/mybatis_plus?verifyServerCertificate=false&useSSL=false
     username: root
     password: root
     type: org.springframework.jdbc.datasource.DriverManagerDataSource
@@ -37,3 +37,21 @@ mybatis-plus:
 # 文件上传路径
 file:
   upload-dir: E:\tmp\file
+
+# Actuator服务监控配置
+# http:/host:port/actuator/health
+# 打开详细信息
+management:
+  endpoint:
+    health:
+      show-details: always
+  # 开启更多端口
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+# 设置服务信息
+# http:/host:port/actuator/info
+info:
+  app-name: spring-boot-actuator-demo
+  description: spring-boot-actuator-demo indexs monitor

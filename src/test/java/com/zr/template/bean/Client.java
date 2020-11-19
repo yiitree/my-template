@@ -36,7 +36,5 @@ public class Client {
         System.out.println(user);
 
         System.out.println(aa);
-
     }
-
 }
