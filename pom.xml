@@ -149,24 +149,25 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- word -->
+        <!-- word模板 -->
         <dependency>
             <groupId>com.deepoove</groupId>
             <artifactId>poi-tl</artifactId>
             <version>1.8.2</version>
         </dependency>
 
-        <!-- poi-word -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-excelant</artifactId>
-            <version>4.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-scratchpad</artifactId>
-            <version>4.1.2</version>
-        </dependency>
+<!--        &lt;!&ndash; poi-word &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-excelant</artifactId>-->
+<!--            <version>4.1.2</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-scratchpad</artifactId>-->
+<!--            <version>4.1.2</version>-->
+<!--        </dependency>-->
+
 <!--        <dependency>-->
 <!--            <groupId>org.apache.poi</groupId>-->
 <!--            <artifactId>poi-ooxml</artifactId>-->
@@ -261,7 +262,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>

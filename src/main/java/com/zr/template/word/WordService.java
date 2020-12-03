@@ -2,14 +2,15 @@ package com.zr.template.word;
 
 import com.zr.template.domain.User;
 import org.apache.poi.ooxml.POIXMLDocument;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xwpf.usermodel.*;
 import org.apache.xmlbeans.XmlCursor;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblPr;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblWidth;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTcPr;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -21,7 +22,11 @@ public class WordService {
     // 报告图片位置的书签名
     private static final String bookmark = "tpBookmark";
 
-
+    /**
+     * 表格
+     * @param out
+     * @throws Exception
+     */
     public void exportBg(OutputStream out) throws Exception {
         String srcPath = "e://word//demoa.docx";
         String targetPath = "e://demo2.docx";
@@ -53,10 +58,47 @@ public class WordService {
                 }
             }
         }
+        // 增加目录
+        generateTOC(doc);
         doc.write(out);
         out.flush();
         out.close();
     }
+
+
+    /**
+     * 目录
+     * @param document
+     * @throws InvalidFormatException
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public static void generateTOC(XWPFDocument document) throws InvalidFormatException, FileNotFoundException, IOException {
+        String findText = "toc";
+        String replaceText = "";
+        for (XWPFParagraph p : document.getParagraphs()) {
+            for (XWPFRun r : p.getRuns()) {
+                int pos = r.getTextPosition();
+                String text = r.getText(pos);
+                System.out.println(text);
+                if (text != null && text.contains(findText)) {
+                    text = text.replace(findText, replaceText);
+                    r.setText(text, 0);
+                    addField(p, "TOC \\o \"1-3\" \\h \\z \\u");
+//                    addField(p, "TOC \\h");
+                    break;
+                }
+            }
+        }
+    }
+
+    private static void addField(XWPFParagraph paragraph, String fieldName) {
+        CTSimpleField ctSimpleField = paragraph.getCTP().addNewFldSimple();
+        ctSimpleField.setInstr(fieldName);
+        ctSimpleField.setDirty(STOnOff.TRUE);
+        ctSimpleField.addNewR().addNewT().setStringValue("<<fieldName>>");
+    }
+
 
     /**
      * 把信息插入表格
