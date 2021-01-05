@@ -1,4 +1,4 @@
-package com.zr.template.controller;
+package com.zr.template.fileUpload;
 
 /**
  * @Author: 曾睿
@@ -7,7 +7,6 @@ package com.zr.template.controller;
 
 import com.zr.template.common.RespBean;
 import com.zr.template.domain.UploadFileResponse;
-import com.zr.template.service.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -57,7 +56,6 @@ public class FileController {
                 .path("/downloadFile/")
                 .path(newFileName)
                 .toUriString();
-
         return new UploadFileResponse(newFileName,fileDownloadUri,file.getContentType(),file.getSize());
     }
 

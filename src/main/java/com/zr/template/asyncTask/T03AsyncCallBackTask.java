@@ -10,22 +10,22 @@ import java.util.concurrent.Future;
  * 03、异步任务-有回调
  */
 @Component
-public class AsyncCallBackTask extends AbstractTask {
+public class T03AsyncCallBackTask extends AbstractTask {
     @Async
     public Future<String> doTaskOneCallback() throws Exception {
         super.doTaskOne();
-        return new AsyncResult<>("任务一完成");
+        return new AsyncResult<>("任务一完成返回");
     }
 
     @Async
     public Future<String> doTaskTwoCallback() throws Exception {
         super.doTaskTwo();
-        return new AsyncResult<>("任务二完成");
+        return new AsyncResult<>("任务二完成返回");
     }
 
     @Async
     public Future<String> doTaskThreeCallback() throws Exception {
         super.doTaskThree();
-        return new AsyncResult<>("任务三完成");
+        return new AsyncResult<>("任务三完成返回");
     }
 }

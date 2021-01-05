@@ -25,4 +25,10 @@ public class UserController {
         return RespBean.ok("查询成功",userDTO);
     }
 
+    // 要加上@Validated，否则不起作用
+    @PostMapping("/x")
+    public RespBean user(@RequestBody @Validated UserDTO userDTO){
+        return RespBean.ok("查询成功",userDTO);
+    }
+
 }

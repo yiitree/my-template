@@ -39,4 +39,10 @@ public class User implements Serializable{
      */
 //    @JsonIgnore
 //    private String password;
+
+//    // 逻辑删除标记
+//    @TableLogic
+//    // 设置返回的时候默认不返回这个字段
+//    @TableField(select = false)
+//    private String deleted;
 }

@@ -1,9 +1,9 @@
-package com.zr.template.service.impl;
+package com.zr.template.fileUpload.impl;
 
 import com.zr.template.config.FileStorageProperties;
 import com.zr.template.exception.FileStorageException;
-import com.zr.template.service.StorageService;
-import com.zr.template.util.UploadUtils;
+import com.zr.template.fileUpload.StorageService;
+import com.zr.template.fileUpload.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

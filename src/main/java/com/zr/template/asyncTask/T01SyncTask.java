@@ -7,5 +7,5 @@ import org.springframework.stereotype.Component;
  * 就是在直接调用任务，没有使用异步
  */
 @Component
-public class SyncTask extends AbstractTask {
+public class T01SyncTask extends AbstractTask {
 }

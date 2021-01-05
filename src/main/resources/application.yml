@@ -32,6 +32,8 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto # id自增
+      #全局逻辑删除字段值（设置默认名为deleted）
+      logic-delete-field: deleted
     banner: true # 启动logo
 
 # 文件上传路径
@@ -50,8 +52,10 @@ management:
     web:
       exposure:
         include: '*'
+
 # 设置服务信息
 # http:/host:port/actuator/info
 info:
   app-name: spring-boot-actuator-demo
   description: spring-boot-actuator-demo indexs monitor
+

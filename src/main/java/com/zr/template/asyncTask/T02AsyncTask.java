@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * 没有返回值
  */
 @Component
-public class AsyncTask extends AbstractTask {
+public class T02AsyncTask extends AbstractTask {
 
     //@Async所修饰的函数不要定义为static类型，这样异步调用不会生效。
     @Override

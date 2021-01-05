@@ -1,4 +1,4 @@
-package com.zr.template.service;
+package com.zr.template.fileUpload;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

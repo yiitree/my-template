@@ -1,4 +1,4 @@
-package com.zr.template.util;
+package com.zr.template.fileUpload;
 
 import org.apache.commons.lang3.StringUtils;
 

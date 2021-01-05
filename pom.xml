@@ -48,6 +48,7 @@
             <version>3.3.1.tmp</version>
         </dependency>
 
+        <!-- h2数据库（内存中使用的） -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

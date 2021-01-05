@@ -39,7 +39,7 @@ public class Query {
      */
     @Test
     public void query2() {
-        Collection<Serializable> idList=new ArrayList<Serializable>();
+        Collection<Serializable> idList=new ArrayList<>();
         idList.add(3);
         idList.add(4);
         idList.add(5);
