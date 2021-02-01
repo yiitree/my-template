@@ -87,10 +87,10 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
         //3、是否生成resetController
         strategy.setRestControllerStyle(true);
-//        //4、controller继承的父类
-//        strategy.setSuperControllerClass("com.xxx.BaseController");
-//        //5、domain继承的父类
-//        strategy.setSuperEntityClass("com.xxx.BaseEntity");
+        //4、controller继承的父类
+        strategy.setSuperControllerClass("com.xxx.BaseController");
+        //5、domain继承的父类
+        strategy.setSuperEntityClass("com.xxx.BaseEntity");
 //        // 把表中字段进行忽略，认为父类中已有（与上面继承连用）
 //        strategy.setSuperEntityColumns("user_id","name");
 

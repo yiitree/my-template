@@ -35,7 +35,7 @@ public class DBUtil {
 
 //            设置 sqlite文件路径，等同于mysql连接地址(jdbc:mysql://127.0.0.1:3306/test)
             String url = "jdbc:com.zr.template.sqlite:" + path + "data1.db";
-            url = "jdbc:com.zr.template.sqlite:E:\\opt\\web\\weijiandata\\file\\data1.db";
+            url = "jdbc:com.zr.template.sqlite:E:\\opt\\web\\weijiandata\\file\\民防办表单数据库-无数据.db";
 
 //            获取连接
             connection = DriverManager.getConnection(url);

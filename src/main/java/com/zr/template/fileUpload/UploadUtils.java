@@ -16,7 +16,7 @@ public class UploadUtils {
      * @return 获取格式
      */
     public static String getTimePaperFormat() {
-        Calendar c = Calendar .getInstance();
+        Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         return "/" + year + "/" + (month+1) + "/";
