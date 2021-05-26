@@ -8,8 +8,6 @@ import java.util.concurrent.Future;
 
 /**
  * 04、使用异步线程池调用
- * @Author: 曾睿
- * @Date: 2020/10/22 14:02
  */
 @Component
 public class T04AsyncExecutorTask extends AbstractTask {

@@ -32,7 +32,6 @@ public class FileController {
         this.storageService = storageService;
     }
 
-
     @PostMapping("/myUploadFile")
     public RespBean myUploadFile(@RequestParam("file") MultipartFile file){
         String url = storageService.myUploadFile(file);
