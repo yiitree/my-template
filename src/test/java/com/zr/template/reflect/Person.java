@@ -14,6 +14,15 @@ public class Person extends F implements I{
     public String address;
     protected String protectedField;
     String defaultField;
+
+    public String get(){
+        return "aaa";
+    }
+
+    String get1(String a){
+        return a;
+    }
+
 }
 
 class F{

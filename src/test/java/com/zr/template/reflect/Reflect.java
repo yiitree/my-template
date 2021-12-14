@@ -18,7 +18,7 @@ public class Reflect {
      * 三种方式
      */
     @Test
-    public void test1(){
+    public void test1() {
         // ================= 1.类对象.getClass() =================
         Person p = new Person();
         Class<?> class1 = p.getClass();
@@ -42,7 +42,7 @@ public class Reflect {
      * 获取反射类的信息
      */
     @Test
-    public void test2(){
+    public void test2() {
         // ================ 1.类修饰符 =================
 //        0--默认不写 1--public 2--private 4--protected
 //        8--static 16--final 32--synchronized
@@ -90,32 +90,12 @@ public class Reflect {
 
         // ================= 指定构造 =================
         Constructor<?> constructor = clazz.getConstructor();
-        Person p1 = (Person)constructor.newInstance();
+        Person p1 = (Person) constructor.newInstance();
         System.out.println(p1);
 
-        Constructor<?> constructor1 = clazz.getConstructor(String.class, Integer.class,String.class,String.class);
-        Person p2 = (Person)constructor1.newInstance("zs", 15,"a","b");
+        Constructor<?> constructor1 = clazz.getConstructor(String.class, Integer.class, String.class, String.class, String.class);
+        Person p2 = (Person) constructor1.newInstance("zs", 15, "a", "b", "c");
         System.out.println(p2);
-    }
-
-    /**
-     * 获取成员变量
-     */
-    @Test
-    public void test4(){
-        // ================= 获取 public 成员变量 =================
-        Class<?> clazz = Person.class;
-        Field[] fields = clazz.getFields();
-        for (Field field : fields) {
-            System.out.println(field.getName());
-        }
-
-        // ================= 获取 所有 成员变量 =================
-        Field[] fields1 = clazz.getDeclaredFields();
-        for (Field field : fields1) {
-            System.out.println(field.getName());
-        }
-
     }
 
     /**
@@ -123,50 +103,77 @@ public class Reflect {
      */
     @Test
     public void test5() throws Exception {
-        // 获取所有 public 方法
         Class<?> clazz = Person.class;
+        // ================= 获取 public 方法 =================
         Method[] methods = clazz.getMethods();
         for (Method method : methods) {
             System.out.println(method.getName());
         }
 
-        Method method = clazz.getMethod("printAll");        //获取单个的公开方法
-        method.invoke(clazz.newInstance(),null);
-
-        Method[] methods1 = clazz.getDeclaredMethods();    //获取所有方法
+        // ================= 获取所有方法 =================
+        Method[] methods1 = clazz.getDeclaredMethods();
         for (Method method1 : methods1) {
             System.out.println(method1.getName());
         }
 
-        Method method1 = clazz.getDeclaredMethod("printOne");    //获取单个所有的方法
+        // 获取方法
+        Method method1 = clazz.getDeclaredMethod("get");
         System.out.println(method1.getName());
+        // 执行方法
+        String a = (String) method1.invoke(clazz.newInstance());
+        System.out.println(a);
+
+        // 方法名 方法参数
+        Method method2 = clazz.getDeclaredMethod("get1", String.class);
+        System.out.println(method2.getName());
+        // 创建一个实例 传参
+        String aa = (String) method2.invoke(clazz.newInstance(), "bbb");
+        System.out.println(aa);
     }
 
-    /*
-    　设置访问属性
-　　　clz.setAccessible(true)　　//可访问
-
-　　　clz.setAccessible(false)　　//不可访问
-
-    //默认是false
-　　 Field id = clz.getField("age"); //age字段　　
-    id.setAccessible(true); //设为可访问
-    id.setAccessible(false);    //设为不可访问
-
-
-　　使用方法
-　　　method.invoke(Object obj,Object... args)
-
-　　　obj：如果是实例方法，则放个该方法的类对象给它
-
-　　　obj：静态方法，写null
-
-　　　args：方法的参数值，没有写null，或不写都行
-
-　　　
-
-    Method method = clz.getMethod("printAll");        //获取单个的公开方法
-    method.invoke(clz.newInstance(),null);    //使用方法
-　　　当然，这些都只是常用的，反射不仅仅是只有这些
+    /**
+     * 获取成员变量
      */
+    @Test
+    public void test4() throws Exception {
+        // ================= 获取 public 成员变量 =================
+        Class<?> clazz = Person.class;
+        Field[] fields = clazz.getFields();
+        for (Field field : fields) {
+            System.out.println(field.getName());
+        }
+
+        // ================= 获取所有成员变量 =================
+        Field[] fields1 = clazz.getDeclaredFields();
+        for (Field field : fields1) {
+            System.out.println(field.getName());
+        }
+
+        // ================= 获取指定成员变量 =================
+        Field field = clazz.getDeclaredField("name");
+        // ================= 设置字段的修饰符（防止有些private无法设置） =================
+        field.setAccessible(true);
+        // ================= 设置字段的属性（防止有些private无法设置） =================
+        Person p = new Person();
+        field.set(p, "mingzi");
+
+        setProperty(p, "age", 12);
+        System.out.println(p);
+    }
+
+    /**
+     * 设置对象的属性
+     *
+     * @param bean         对象
+     * @param propertyName 要设置的属性名
+     * @param value        要设置的值
+     * @throws Exception
+     */
+    public void setProperty(Object bean, String propertyName, Object value) throws Exception {
+        Class<?> clazz = bean.getClass();
+        Field field = clazz.getDeclaredField(propertyName);
+        field.setAccessible(true);
+        field.set(bean, value);
+    }
+
 }
